@@ -13,19 +13,22 @@ class MyDrawerWidget extends StatelessWidget {
     final homeCtrl = Get.put(HomeController());
     return Drawer(
       backgroundColor: AppColors.primaryBackground,
-      child: ListView(
-        padding: EdgeInsets.zero,
+      child: Column(
         children: <Widget>[
           const DrawerHeader(
             decoration: BoxDecoration(
               color: AppColors.secondaryBackground,
             ),
-            child: Text(
-              'Amal Jose',
-              style: TextStyle(
-                color: AppColors.accentOrange,
-                fontSize: 24,
-              ),
+            child: Row(
+              children: [
+                Text(
+                  'Amal Jose',
+                  style: TextStyle(
+                    color: AppColors.accentOrange,
+                    fontSize: 24,
+                  ),
+                ),
+              ],
             ),
           ),
           Flexible(
