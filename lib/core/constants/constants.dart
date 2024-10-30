@@ -19,4 +19,7 @@ class Appconstants {
   static const standardWidth = SizedBox(width: 25);
   static const largeWidth = SizedBox(width: 30);
   static const extraLargeWidth = SizedBox(width: 45);
+
+  static sHight(BuildContext context) =>
+      SizedBox(height: MediaQuery.of(context).size.width * 0.1);
 }

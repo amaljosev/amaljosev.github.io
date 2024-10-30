@@ -19,19 +19,32 @@ class Appstyles {
       fontWeight: FontWeight.w500,
       color: AppColors.textLight);
 
-  static TextStyle headline(BuildContext context) {
+  static TextStyle headline(BuildContext context,double fontSize) {
     return TextStyle(
-      fontSize: MediaQuery.of(context).size.width * 0.03,
-      fontWeight: FontWeight.bold,
-      color: Colors.orange,
+      fontSize: MediaQuery.of(context).size.width * fontSize,
+      fontWeight: FontWeight.w500,
+      fontFamily: 'Poppins',
+      color: AppColors.textLight,
     );
   }
 
-  static TextStyle subHeadline(BuildContext context) {
+  static TextStyle subHeadline(
+      {required BuildContext context, required double fontSize}) {
     return TextStyle(
-      fontSize: MediaQuery.of(context).size.width * 0.02,
-      fontWeight: FontWeight.w600,
-      color: Colors.white,
+      fontSize: MediaQuery.of(context).size.width * fontSize,
+      fontWeight: FontWeight.bold,
+      fontFamily: 'Poppins',
+      color: AppColors.hoverActiveState,
+    );
+  }
+
+  static TextStyle content(
+      {required BuildContext context, required double fontSize}) {
+    return TextStyle(
+      fontSize: MediaQuery.of(context).size.width * fontSize,
+      fontWeight: FontWeight.w500,
+      fontFamily: 'Poppins',
+      color: AppColors.textGray,
     );
   }
 

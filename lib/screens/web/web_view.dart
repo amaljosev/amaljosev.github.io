@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:myportfolio/core/constants/constants.dart';
+import 'package:myportfolio/core/styles/appstyles.dart';
+import 'package:myportfolio/screens/controllers/home_controller/home_controller.dart';
 import 'package:myportfolio/screens/web/widgets/home_title_section_widget.dart';
 import 'package:myportfolio/screens/widgets/home_image_widget.dart';
+import 'package:myportfolio/screens/widgets/services_widget.dart';
 import 'package:myportfolio/screens/widgets/web_appbar.dart';
 
 class WebView extends StatelessWidget {
@@ -10,6 +14,7 @@ class WebView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final homeCtrl = Get.put(HomeController());
     return Scaffold(
       body: ListView(
         children: [
@@ -18,6 +23,7 @@ class WebView extends StatelessWidget {
             children: [
               HomeTitleSectionWidget(
                 size: size,
+                fontSize: 0.02,
                 experienceWidth: 0.27,
                 experienceHight: 0.06,
                 mainWidth: 0.5,
@@ -30,7 +36,29 @@ class WebView extends StatelessWidget {
               ),
               HomeImageWidget(size: size),
             ],
-          )
+          ),
+          Appconstants.sHight(context),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Services', style: Appstyles.headline(context,0.035)),
+            ],
+          ),
+          Appconstants.largeheight,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: List.generate(
+              homeCtrl.myServices.length,
+              (index) => ServiesWidget(
+                isMobile: false,
+                size: size,
+                titleFontSize: 0.012,
+                descriptionFontSize: 0.01,
+                service: homeCtrl.myServices[index],
+              ),
+            ),
+          ),
+          Appconstants.largeheight,
         ],
       ),
     );

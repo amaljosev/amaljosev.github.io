@@ -10,7 +10,7 @@ class HomeImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: size.width * 0.5,
-      width: size.width * 0.5,
+      width: size.width * 0.5, 
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [

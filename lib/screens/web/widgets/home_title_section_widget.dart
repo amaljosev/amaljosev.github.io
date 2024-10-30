@@ -20,10 +20,12 @@ class HomeTitleSectionWidget extends StatelessWidget {
       required this.experienceFontSize,
       required this.mainWidth,
       this.myCrossAxisAlignment = CrossAxisAlignment.start,
-      required this.myMainAxisAlignment});
+      required this.myMainAxisAlignment,
+      required this.fontSize});
 
   final Size size;
   final double mainWidth;
+  final double fontSize;
   final double experienceWidth;
   final double experienceHight;
   final SizedBox smallSpace;
@@ -35,25 +37,28 @@ class HomeTitleSectionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: size.width * mainWidth,
       width: size.width * mainWidth,
       child: Padding(
-        padding: const EdgeInsets.only(left: 25.0, top: 30.0),
+        padding: EdgeInsets.only(
+            left:
+                myCrossAxisAlignment == CrossAxisAlignment.center ? 0.0 : 25.0,
+            top: 30.0),
         child: Column(
           crossAxisAlignment: myCrossAxisAlignment,
+          mainAxisSize: MainAxisSize.min,
           children: [
             Text(
               'Hi, I am',
               style: TextStyle(
                 color: AppColors.textGray,
-                fontSize: size.width * 0.02,
+                fontSize: size.width * fontSize,
               ),
             ),
             Text(
               'Amal Jose',
               style: TextStyle(
                 color: AppColors.textGray,
-                fontSize: size.width * 0.035,
+                fontSize: size.width * (fontSize + 0.02),
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -68,26 +73,22 @@ class HomeTitleSectionWidget extends StatelessWidget {
               child: Text(
                 'Flutter Developer',
                 style: TextStyle(
-                  fontSize: size.width * 0.045,
+                  fontSize: size.width * (fontSize + 0.03),
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            bigSpace,
             SocialWidget(mainAxisAlignment: myMainAxisAlignment),
             bigSpace,
             Row(
               mainAxisAlignment: myMainAxisAlignment,
               children: [
                 MyElevationButton(
-                    title: 'Hire Me',
-                    padding: size.width * 0.01,
-                    onPressed: () => log('message')),
+                    title: 'Hire Me', onPressed: () => log('message')),
                 Appconstants.mediumWidth,
                 MyOutlinedButton(
                     icon: FontAwesomeIcons.download,
                     title: 'Download CV',
-                    padding: size.width * 0.01,
                     onPressed: () => log('message'))
               ],
             ),

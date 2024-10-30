@@ -16,33 +16,24 @@ class SocialWidget extends StatelessWidget {
               color: AppColors.textGray),
           onPressed: () {},
         ),
-        mainAxisAlignment == MainAxisAlignment.center
-            ? const SizedBox()
-            : Appconstants.mediumWidth,
+        Appconstants.smallWidth,
         IconButton(
           icon:
               const FaIcon(FontAwesomeIcons.github, color: AppColors.textGray),
           onPressed: () {},
         ),
-        mainAxisAlignment == MainAxisAlignment.center
-            ? const SizedBox()
-            : Appconstants.mediumWidth,
+        Appconstants.smallWidth,
         IconButton(
           icon: const FaIcon(FontAwesomeIcons.facebook,
               color: AppColors.textGray),
           onPressed: () {},
         ),
-        mainAxisAlignment == MainAxisAlignment.center
-            ? const SizedBox()
-            : Appconstants.mediumWidth,
+        Appconstants.smallWidth,
         IconButton(
           icon: const FaIcon(FontAwesomeIcons.linkedin,
               color: AppColors.textGray),
           onPressed: () {},
         ),
-        mainAxisAlignment == MainAxisAlignment.center
-            ? const SizedBox()
-            : Appconstants.mediumWidth,
       ],
     );
   }
