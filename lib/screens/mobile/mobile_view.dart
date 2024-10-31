@@ -2,12 +2,15 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myportfolio/core/constants/constants.dart';
+import 'package:myportfolio/core/font/font_size.dart';
 import 'package:myportfolio/core/styles/appstyles.dart';
 import 'package:myportfolio/screens/controllers/home_controller/home_controller.dart';
+import 'package:myportfolio/screens/tab/widgets/skills_widget.dart';
 import 'package:myportfolio/screens/web/widgets/home_title_section_widget.dart';
+import 'package:myportfolio/screens/widgets/about_image_widget.dart';
 import 'package:myportfolio/screens/widgets/home_image_widget.dart';
 import 'package:myportfolio/screens/widgets/my_drawer.dart';
-import 'package:myportfolio/screens/widgets/my_elevated_button.dart';
+import 'package:myportfolio/screens/common/my_elevated_button.dart';
 import 'package:myportfolio/screens/widgets/services_widget.dart';
 
 class MobileView extends StatelessWidget {
@@ -20,10 +23,7 @@ class MobileView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          MyElevationButton(
-              title: 'Hire Me',
-              padding: size.width * 0.0,
-              onPressed: () => log('message')),
+          MyElevationButton(title: 'Hire Me', onPressed: () => log('message')),
           Appconstants.smallWidth
         ],
       ),
@@ -48,7 +48,7 @@ class MobileView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Services', style: Appstyles.headline(context,0.07)),
+              Text('Services', style: Appstyles.headline(context, 0.07)),
             ],
           ),
           Appconstants.mediumheight,
@@ -68,7 +68,61 @@ class MobileView extends StatelessWidget {
               ),
             ),
           ),
-          Appconstants.largeheight
+         
+          Appconstants.sHight(context),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('About Me', style: Appstyles.headline(context, 0.035)),
+            ],
+          ),
+          Appconstants.largeheight,
+          Column(
+            children: [
+              AboutMeImageWidget(size: size),
+              Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Column(
+                  children: [
+                    Text(
+                        "I am a highly motivated and self-taught Flutter developer with a passion for building visually appealing, user-friendly mobile applications. With a strong foundation in object-oriented programming, I’m skilled at creating clean, efficient code and thrive on quickly adapting to new technologies. I enjoy transforming ideas into functional, beautiful apps that prioritize user experience and seamless performance.",
+                        style: Appstyles.content(
+                            context: context,
+                            fontSize: FontSize.mobcontentSize)),
+                    Row(
+                      children: [
+                        MyElevationButton(
+                            title: 'Hire Me',
+                            onPressed: () => log('message')),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          Appconstants.sHight(context),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('My Skills', style: Appstyles.headline(context, 0.035)),
+            ],
+          ),
+           Appconstants.largeheight,
+          SizedBox(
+            child: Wrap(
+              runSpacing: 20,
+              alignment: WrapAlignment.spaceEvenly,
+              children: List.generate(
+                  homeCtrl.skills.length,
+                  (index) => TabSkillsWidget(
+
+                      skill: homeCtrl.skills[index],
+                      size: size,
+                      fontSize: FontSize.mobcontentSize,
+                      containerWidth: 0.3)),
+            ),
+          ),
         ],
       ),
     );

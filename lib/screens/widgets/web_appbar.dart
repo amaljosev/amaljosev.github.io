@@ -6,7 +6,7 @@ import 'package:myportfolio/core/colors/appcolors.dart';
 import 'package:myportfolio/core/constants/constants.dart';
 import 'package:myportfolio/core/styles/appstyles.dart';
 import 'package:myportfolio/screens/controllers/home_controller/home_controller.dart';
-import 'package:myportfolio/screens/widgets/my_elevated_button.dart';
+import 'package:myportfolio/screens/common/my_elevated_button.dart';
 
 class WebAppbar extends StatelessWidget {
   const WebAppbar({super.key});

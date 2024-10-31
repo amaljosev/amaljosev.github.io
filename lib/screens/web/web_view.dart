@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myportfolio/core/constants/constants.dart';
+import 'package:myportfolio/core/font/font_size.dart';
 import 'package:myportfolio/core/styles/appstyles.dart';
 import 'package:myportfolio/screens/controllers/home_controller/home_controller.dart';
 import 'package:myportfolio/screens/web/widgets/home_title_section_widget.dart';
+import 'package:myportfolio/screens/widgets/about_image_widget.dart';
+import 'package:myportfolio/screens/widgets/about_skills_widget.dart';
 import 'package:myportfolio/screens/widgets/home_image_widget.dart';
 import 'package:myportfolio/screens/widgets/services_widget.dart';
 import 'package:myportfolio/screens/widgets/web_appbar.dart';
@@ -41,7 +44,7 @@ class WebView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Services', style: Appstyles.headline(context,0.035)),
+              Text('Services', style: Appstyles.headline(context, 0.035)),
             ],
           ),
           Appconstants.largeheight,
@@ -52,13 +55,30 @@ class WebView extends StatelessWidget {
               (index) => ServiesWidget(
                 isMobile: false,
                 size: size,
-                titleFontSize: 0.012,
-                descriptionFontSize: 0.01,
+                titleFontSize: FontSize.webHeadingSize,
+                descriptionFontSize: FontSize.webcontentSize,
                 service: homeCtrl.myServices[index],
               ),
             ),
           ),
+          Appconstants.sHight(context),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('About Me', style: Appstyles.headline(context, 0.035)),
+            ],
+          ),
           Appconstants.largeheight,
+          Row(
+            children: [
+              AboutMeImageWidget(size: size),
+              AboutAndSkillsWidget(
+                size: size,
+                mySkills: homeCtrl.skills,
+              ),
+            ],
+          ),
+          Appconstants.sHight(context),
         ],
       ),
     );

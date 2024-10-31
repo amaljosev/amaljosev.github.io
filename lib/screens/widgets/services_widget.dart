@@ -9,7 +9,7 @@ class ServiesWidget extends StatelessWidget {
       {super.key,
       required this.size,
       required this.service,
-      this.padding = 30,
+      this.padding = 20,
       required this.descriptionFontSize,
       required this.titleFontSize,
       required this.isMobile,

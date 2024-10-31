@@ -4,8 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:myportfolio/core/colors/appcolors.dart';
 import 'package:myportfolio/core/constants/constants.dart';
 import 'package:myportfolio/screens/widgets/experience_widget.dart';
-import 'package:myportfolio/screens/widgets/my_elevated_button.dart';
-import 'package:myportfolio/screens/widgets/my_outlined_button.dart';
+import 'package:myportfolio/screens/common/my_elevated_button.dart';
+import 'package:myportfolio/screens/common/my_outlined_button.dart';
 import 'package:myportfolio/screens/widgets/social_widget.dart';
 
 class HomeTitleSectionWidget extends StatelessWidget {

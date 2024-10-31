@@ -20,7 +20,6 @@ class MyOutlinedButton extends StatelessWidget {
       label: Text(title),
       icon: FaIcon(icon),
       style: OutlinedButton.styleFrom(
-          padding: EdgeInsets.all(padding),
           foregroundColor: AppColors.textGray,
           side: const BorderSide(color: AppColors.textGray),
           shape: const ContinuousRectangleBorder(
